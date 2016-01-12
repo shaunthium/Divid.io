@@ -1,15 +1,19 @@
 <div class="center">
-	<h1>Insert image here</h1>
+	<%= image_tag "DarthVader.png", :style => "height: 500px; width: auto;" %>
+	<h1><br/>Choose one</h1>
 </div>
 <div>
 	<%= link_to new_session_path do %>
-	<div class="col_half center">
+	<div class="col_half center" style="border-style:solid;">
 		<h3><span>Create</span><br/>
-		<small>a <span>new</span> room</small></h3>
+		<small>a <b>new</b> video lobby</small></h3>
 	</div>
 	<% end %>
-	<div class="col_half col_last center">
-		<h3>Join<br/>
-		<small>an <span>existing</span> room</small></h3>
+	
+	<%= link_to join_session_path do %>
+	<div class="col_half col_last center" style="border-style:solid;">
+		<h3><span>Join</span><br/>
+		<small>an <b>existing</b> video lobby</small></h3>
 	</div>
+	<% end %>
 </div>

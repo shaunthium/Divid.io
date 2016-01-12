@@ -1,0 +1,15 @@
+<div class="promo promo-border promo-center bottommargin topmargin-lg">
+	<h2>Enter the <span>channel ID</span> that you wish to join</h2>
+
+	<%= form_tag do %>
+		<%= label_tag(:id, "Channel ID") %>
+		<%= text_field_tag(:id) %>
+		<%= submit_tag("Join Lobby", class: "button button-rounded button-dark") %>
+	<% end %>
+
+	<h4><small>The channel ID is what you will use to join the video lobby</small></h4>
+
+	<%= link_to join_session_path do %>
+		On form submission, join lobby
+	<% end %>
+</div>

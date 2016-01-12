@@ -4,4 +4,7 @@ class SessionsController < ApplicationController
 
 	def new
 	end
+
+	def join
+	end
 end
