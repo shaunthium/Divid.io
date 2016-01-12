@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'sessions/join' => "sessions#join", as: 'join_session'
+  get 'sessions/lobby' => "sessions#lobby", as: 'lobby'
   resources :sessions
 
   # The priority is based upon order of creation: first created -> highest priority.

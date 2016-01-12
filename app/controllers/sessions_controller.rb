@@ -7,4 +7,7 @@ class SessionsController < ApplicationController
 
 	def join
 	end
+
+	def lobby
+	end
 end
