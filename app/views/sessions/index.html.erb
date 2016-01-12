@@ -1,2 +1,15 @@
-<p class="para">Hello world</p>
-<%= link_to "Create", new_session_path %>
+<div class="center">
+	<h1>Insert image here</h1>
+</div>
+<div>
+	<%= link_to new_session_path do %>
+	<div class="col_half center">
+		<h3><span>Create</span><br/>
+		<small>a <span>new</span> room</small></h3>
+	</div>
+	<% end %>
+	<div class="col_half col_last center">
+		<h3>Join<br/>
+		<small>an <span>existing</span> room</small></h3>
+	</div>
+</div>
