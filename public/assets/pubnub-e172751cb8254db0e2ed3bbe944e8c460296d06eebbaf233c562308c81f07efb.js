@@ -18,10 +18,7 @@
             channel: 'test_channel',
             message: {
                 "text": "Hello World!",
-                "width": window.screen.width,
-                "height": window.screen.height,
-                "availWidth": window.screen.availWidth,
-                "availHeight": window.screen.availHeight
+                "screen": window.screen
             }
         });
     }
