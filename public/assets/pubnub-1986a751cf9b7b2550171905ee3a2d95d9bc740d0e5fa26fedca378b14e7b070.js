@@ -17,9 +17,7 @@
         PUBNUB_demo.publish({
             channel: 'test_channel',
             message: {
-                "text": "Hello World!",
-                "width": window.screen.availWidth,
-                "height": window.screen.availHeight
+                "text": "Hello World!"
             }
         });
     }
