@@ -1,16 +1,46 @@
 <div class="topmargin-lg center bottommargin">
 	<h1>Welcome to the lobby</h1>
+  <p class="para">Your video id: <%= @video_id %></p>
 	<p class="para">The canvas below shows friends who have joined your lobby.</p>
 	<p class="para">Drag and drop the rectangles (representative of screen size) to your desired configuration.</p>
 	<p class="para">Click "Stream" to play video.</p>
 
 	<div id="player"></div>
-	<script>
-		var tag = document.createElement('script');
-		tag.src = "https://www.youtube.com/iframe_api";
-		var firstScriptTag = document.getElementsByTagName('script')[0];
-		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-	</script>
+  <%= javascript_include_tag "http://cdn.pubnub.com/pubnub.min.js" %>
+  <%= javascript_include_tag "videosync" %>
+  <script>
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var playerVars = {
+      modestbranding: 1,
+      theme: 'light',
+      showinfo: 0,
+      rel: 0,
+      fs: 0
+    };
+
+    var rand = Math.random().toString();
+
+    var vidSync = new VideoSync("<%= @video_id %>", "Player" + rand);
+
+    var player;
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '200',
+        width: '200',
+        videoId: "<%= @video_id %>",
+        playerVars: playerVars,
+        events: {
+          'onReady': vidSync.onPlayerReady,
+          'onStateChange': vidSync.onPlayerStateChange
+        }
+      });
+    }
+  </script>
 
 	<div style="border-style:solid; width:auto; height:500px;">
 		Canvas goes here
