@@ -1,18 +1,13 @@
 #first {
-	width:375px; 
+	width:auto; 
 	height:559px; 
 	left:0; 
 	position:absolute;
 }
 
 #second {
-	width:375px;
-	height:559px;
 	left:0;
 	position:absolute;
-}
-body {
-	background-color: red;
 }
 
 /* Smartphones (portrait and landscape) ----------- */
