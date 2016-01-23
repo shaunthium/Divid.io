@@ -29,6 +29,10 @@
 				<p><%= f.text_field :id, placeholder:"Ask the lobby master for the ID to join!", id:"text-field" %></p>
 				<p><%= f.submit "Join Lobby", class: "button button-rounded button-dark" %></p>
 			<% end %>
+
+			<%= link_to wait_path do %>
+				<button>Use this to view waiting room</button>
+			<% end %>
 		</div>
 
 	</div>
