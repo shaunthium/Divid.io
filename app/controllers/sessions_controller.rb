@@ -2,12 +2,29 @@ class SessionsController < ApplicationController
   include SessionsHelper
 
 	def index
+    @session = Session.new
 	end
 
 	def new
 	end
 
   def wait
+  end
+
+  def create_image
+    @session = Session.new
+    @session.image = params[:session][:image]
+    if @session.save
+      redirect_to lobby_path
+    end
+  end
+
+  def create_video
+    @session = Session.new
+    @session.video = params[:session][:video]
+    if @session.save
+      redirect_to lobby_path
+    end
   end
 
   def create
@@ -26,6 +43,7 @@ class SessionsController < ApplicationController
   end
 
 	def lobby
+    @session = Session.last
     @video_id = params[:video_id]
     if Session.any?
       @identity = "second"
@@ -34,5 +52,10 @@ class SessionsController < ApplicationController
       @identity = "first"
     end
   end
+
+  private
+    def image_params
+      params.require(:session).permit(:image)
+    end
 
 end

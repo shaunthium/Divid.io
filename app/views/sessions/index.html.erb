@@ -14,7 +14,15 @@
 		<a href="#" class="button button-desc button-dark button-rounded" id="join-button">
 			<div>Join<span>an <b>existing</b> lobby</span></div>
 		</a>
-		
+
+    <div class="well">
+      <%= form_for @session, url: create_video_path, html: { multipart: true } do |f| %>
+        <%= f.label :video %>
+        <%= f.file_field :video %>
+        <%= f.submit "Save", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
 		<%# CREATE %>
 		<div id="create-form" class="promo promo-dark promo-mini promo-center topmargin-lg bottommargin-lg hide-form">
 
