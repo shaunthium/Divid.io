@@ -6,6 +6,117 @@
     font-size: 18px;
 }
 
+.bg-img {
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+    
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+      
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: -1;
+}
+
+#bg {
+    position : absolute;
+    width : 100%;
+    height : 100%;
+    text-align: center;
+}
+
+#bg:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#wrap {
+    height : 50%;
+    width : 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+    img.bg {
+        left: 50%;
+        margin-left: -512px;   /* 50% */
+  }
+}
+
+#form-label {
+    font-size: 22px;
+    color: #3399CC;
+}
+
+#text-field {
+  background-color: transparent;
+  font-family:sans-serif;
+  font-size:20px;
+  outline:none;
+  border:0;
+  border-bottom:2px solid #3399CC;
+  -o-transition:box-shadow .5s ease;
+  -moz-transition:box-shadow .5s ease;
+  -webkit-transition:box-shadow .5s ease;
+  -ms-transition:box-shadow .5s ease;
+  transition:box-shadow .5s ease;
+  box-shadow:0 0 0 0 #ddd inset;
+  box-sizing:border-box;
+  padding:5px;
+  color:white;
+  width:80%;
+}
+
+#text-field:focus{
+  box-shadow:0 0 0 20px #555 inset;
+}
+
+::-webkit-input-placeholder {
+  color: #aaa;
+  opacity:1;
+  font-weight:100;
+  font-family:sans-serif;
+}
+
+:-moz-placeholder {
+  color: #aaa;
+  opacity:1;
+  font-weight:100;
+  font-family:sans-serif;
+}
+
+::-moz-placeholder {
+  color: #aaa;
+  opacity:1;
+  font-weight:100;
+  font-family:sans-serif;
+}
+
+:-ms-input-placeholder {
+  color: #aaa;
+  opacity:1;
+  font-weight:100;
+  font-family:sans-serif;
+}
+
+.hide-form {
+    display:none;
+}
+
+#index-title {
+  font-size:120px;
+  color:white;
+  font-family:ubuntu;
+}
+
 /* ----------------------------------------------------------------
     Colors
 

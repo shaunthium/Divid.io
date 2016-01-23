@@ -74,12 +74,14 @@ function VideoSync(roomId, userId) {
                     } else if (m.type === "pause") {
                         player.seekTo(m.time, true);
                         time = m.time;
-                        player.pauseVideo();
+                        console.log("PAUSE!");
+                        player.pause();
                     } else if (m.type === "play") {
                         if (m.time !== null) {
                             player.seekTo(m.time, true);
                         }
-                        player.playVideo();
+                        console.log("PLAY!");
+                        player.play();
                     }
                 }
             },
@@ -94,13 +96,13 @@ function VideoSync(roomId, userId) {
           if (Math.abs(curTime - time) > 1) {
             if (curState === 2) {
               pub("pause", curTime);
-              player.pauseVideo();
+              player.pause();
             } else if (curState === 1) {
-              player.pauseVideo();
+              player.pause();
             }
           }
           time = curTime;
-        }, 500);
+        }, 100);
 
     };
 
@@ -108,22 +110,27 @@ function VideoSync(roomId, userId) {
     // ---
     return {
         // Should be bound to the YouTube player `onReady` event.
-        onPlayerReady: function (event) {
-            player = event.target;
-            event.target.playVideo();
-            event.target.pauseVideo();
+        onPlayerReady: function (p) {
+            player = p;
+            // player.play();
+            // player.pause();
             keepSync();
         },
         // Should be bound to the YouTube player `onStateChange` event.
-        onPlayerStateChange: function (event) {
+        onPlayerStateChange: function (p) {
             if (linkStart) {
-                // Play event.
-                if (event.data === 1) {
+                console.log("PlayerState: " + player.getPlayerState());
+                if (player.getPlayerState() === 1) { // Play event.
+                    console.log("Tell PUBNUB PLAY");
                     pub("play", null);
                 }
                 // Pause event.
-                else if (event.data === 2) {
+                else if (player.getPlayerState() === 2) {
+                  console.log("Tell PUBNUB PAUSE");
                     pub("pause", player.currentTime());
+                }
+                else {
+                  console.log("NOOOOOOOO");
                 }
             }
         }
