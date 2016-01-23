@@ -5,44 +5,79 @@
 	<p class="para">Drag and drop the rectangles (representative of screen size) to your desired configuration.</p>
 	<p class="para">Click "Stream" to play video.</p>
 
-	<div id="player"></div>
+	<!-- <div id="player"></div> -->
   <%= javascript_include_tag "http://cdn.pubnub.com/pubnub.min.js" %>
   <%= javascript_include_tag "videosync" %>
-  <script>
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	<%= javascript_include_tag "stanko" %>
 
-    var playerVars = {
-      modestbranding: 1,
-      theme: 'light',
-      showinfo: 0,
-      rel: 0,
-      fs: 0,
-      playsinline: 1,
-      autoplay: 1
-    };
+	<div id="player" class="video-wrapper js-video-wrapper">
+		<div class="video-responsive">
+			<video class="video js-video" muted controls>
+				<source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.webm" type="video/webm">
+				<source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" type="video/mp4">
+				<source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.ogv" type="video/ogg">
+				<!-- <source src="https://www.youtube.com/watch?v=kfchvCyHmsc?html5=1" type="video/mp4"> -->
+				<!-- <source src="videos/test.mp4" type="video/mp4"> -->
+				Your browser does not support HTML5 video.
+			</video>
+
+			<canvas class="canvas js-canvas" style="width:1000px"></canvas>
+
+			<div class="video-timeline js-timeline">
+				<div class="video-timeline-passed js-timeline-passed">
+				</div>
+			</div>
+		</div>
+	</div>
+  <script>
+    // var tag = document.createElement('script');
+    // tag.src = "https://www.youtube.com/iframe_api";
+    // var firstScriptTag = document.getElementsByTagName('script')[0];
+    // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+		//
+    // var playerVars = {
+    //   modestbranding: 1,
+    //   theme: 'light',
+    //   showinfo: 0,
+    //   rel: 0,
+    //   fs: 0,
+    //   playsinline: 1,
+    //   autoplay: 1
+    // };
+
+
+
+
 
     var rand = Math.random().toString();
 
     var vidSync = new VideoSync("<%= @video_id %>1", "Player" + rand);
 
-    var player;
+    // var player = document.getElementsByClassName('video js-video')[0];
+		var player = new CanvasVideoPlayer({
+			videoSelector: '.js-video',
+			canvasSelector: '.js-canvas',
+			timelineSelector: '.js-timeline',
+			audio: true,
+			PBonPlayerReady : vidSync.onPlayerReady,
+			PBonPlayerStateChange : vidSync.onPlayerStateChange
+		});
 
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', {
-        height: '600',
-        width: '600',
-        videoId: "<%= @video_id %>",
-        playerVars: playerVars,
-        events: {
-          'onReady': vidSync.onPlayerReady,
-          'onStateChange': vidSync.onPlayerStateChange
-        }
-      });
-      document.getElementsByTagName('iframe')[0].setAttribute('playsinline','1');
-    }
+    // function onYouTubeIframeAPIReady() {
+    //   player = new YT.Player('player', {
+    //     height: '600',
+    //     width: '600',
+    //     videoId: "<%= @video_id %>",
+    //     playerVars: playerVars,
+    //     events: {
+    //       'onReady': vidSync.onPlayerReady,
+    //       'onStateChange': vidSync.onPlayerStateChange
+    //     }
+    //   });
+    //   document.getElementsByTagName('iframe')[0].setAttribute('playsinline','1');
+    // }
+
+
   </script>
 
   <div class="clear"></div>
