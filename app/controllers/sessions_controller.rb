@@ -30,11 +30,10 @@ class SessionsController < ApplicationController
   def create
     @session = Session.new
     @session.video = params[:session][:video]
-    channel_name = params[:session][:channel_name]
-    upload_video = params[:session][:upload_video]
-    num_people = params[:session][:num_people]
+    @session.channel_name = params[:session][:channel_name]
+    @session.num_people = params[:session][:num_people]
     if @session.save
-      redirect_to lobby_path(channel_name: channel_name)
+      redirect_to lobby_path(channel_name: @session.channel_name)
     end
   end
 

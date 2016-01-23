@@ -36,6 +36,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 # to run rails on an ssh server
 gem 'thin'
+# to include bootstrap modals
+gem 'bootstrap-modal-rails'
 
 gem 'carrierwave'
 
