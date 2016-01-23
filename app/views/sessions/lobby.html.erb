@@ -17,27 +17,20 @@
         Your browser does not support HTML5 video.
       </video> -->
 
-      <%= video_tag @session.video, controls: true %>
+      <%= video_tag @session.video, "", controls: true, size: '0' %>
 
       <% if @identity == "first" %>
-      <!-- <canvas class="canvas js-canvas" id="first"></canvas> -->
-	<p>first</p>
-
-      <!-- <div class="video-timeline js-timeline">
-        <div class="video-timeline-passed js-timeline-passed">
-        </div>
-      </div> -->
+        <canvas class="canvas js-canvas" id="first"></canvas>
       <% else %>
-      <!-- <canvas class="canvas js-canvas" id="second"></canvas> -->
-
-      <!-- <div class="video-timeline js-timeline">
-        <div class="video-timeline-passed js-timeline-passed">
-        </div>
-      </div> -->
+        <canvas class="canvas js-canvas" id="second"></canvas>
       <% end %>
+      <div class="video-timeline js-timeline">
+        <div class="video-timeline-passed js-timeline-passed"></div>
+      </div>
     </div>
   </div>
   <script>
+    document.getElementsByTagName('video')[0].className += "video js-video";
     var rand = Math.random().toString();
 
     var vidSync = new VideoSync("<%= @video_id %>", "Player" + rand);
