@@ -34,6 +34,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap-sass'
+# to run rails on an ssh server
+gem 'thin'
 
 group :development do
   # Turns off Rails asset pipeline log

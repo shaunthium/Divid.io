@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'sessions/join' => "sessions#join", as: 'join_session'
   get 'sessions/lobby' => "sessions#lobby", as: 'lobby'
+  get 'sessions/wait' => "sessions#wait", as: "wait"
   post 'sessions/join_submit' => 'sessions#join_submit', as: 'join_submit'
   resources :sessions
 

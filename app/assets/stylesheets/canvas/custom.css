@@ -1,0 +1,20 @@
+#project {
+    margin-top: 35px;
+}
+
+#project img {
+    margin: 0 auto;
+    height: 405px;
+}
+
+#main {
+    margin-top: 50px;
+}
+
+#main .row img {
+    width: 100%;
+}
+
+#main .row div.col-xs-3 {
+    border: 1px solid grey;
+}

@@ -1,19 +1,41 @@
-<div class="center">
-	<%= image_tag "Invoker.png", :style => "height: 500px; width: auto;" %>
-	<h1><br/>Choose one</h1>
-</div>
-<div>
-	<%= link_to new_session_path do %>
-	<div class="col_half center" style="border-style:solid;">
-		<h3><span>Create</span><br/>
-		<small>a <b>new</b> video lobby</small></h3>
+<div id="bg">
+	<%= javascript_include_tag "index" %>
+
+	<%= image_tag "bg.jpg", :class => "bg-img" %>
+
+	<div id="wrap" class="center">
+
+		<h1 id="index-title">Divideo</h1>
+
+		<a href="#" class="button button-desc button-dark button-rounded" id="create-button">
+			<div>Create<span>a <b>new</b> video lobby</span></div>
+		</a>
+
+		<a href="#" class="button button-desc button-dark button-rounded" id="join-button">
+			<div>Join<span>an <b>existing</b> lobby</span></div>
+		</a>
+		
+		<%# CREATE %>
+		<div id="create-form" class="promo promo-dark promo-mini promo-center topmargin-lg bottommargin-lg hide-form">
+
+			<%= form_for :sessions, url: sessions_path do |f| %>
+				<p><%= f.text_field :id, placeholder:"Enter the youtube video ID", id:"text-field" %></p>
+				<p><%= f.submit "Create Lobby", class: "button button-rounded button-dark" %></p>
+			<% end %>
+		</div>
+
+		<%# JOIN %>
+		<div id="join-form" class="promo promo-dark promo-mini promo-center topmargin-lg bottommargin-lg hide-form">
+
+			<%= form_for :sessions, url: join_submit_path do |f| %>
+				<p><%= f.text_field :id, placeholder:"Ask the lobby master for the ID to join!", id:"text-field" %></p>
+				<p><%= f.submit "Join Lobby", class: "button button-rounded button-dark" %></p>
+			<% end %>
+
+			<%= link_to wait_path do %>
+				<button>Use this to view waiting room</button>
+			<% end %>
+		</div>
+
 	</div>
-	<% end %>
-	
-	<%= link_to join_session_path do %>
-	<div class="col_half col_last center" style="border-style:solid;">
-		<h3><span>Join</span><br/>
-		<small>an <b>existing</b> video lobby</small></h3>
-	</div>
-	<% end %>
 </div>

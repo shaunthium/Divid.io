@@ -7,6 +7,9 @@ class SessionsController < ApplicationController
 	def new
 	end
 
+  def wait
+  end
+
   def create
     video_id = video_params[:id]
     redirect_to lobby_path(video_id: video_id)
