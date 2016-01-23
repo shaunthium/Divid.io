@@ -19,7 +19,9 @@
 		<div id="create-form" class="promo promo-dark promo-mini promo-center topmargin-lg bottommargin-lg hide-form">
 
 			<%= form_for :sessions, url: sessions_path do |f| %>
-				<p><%= f.text_field :id, placeholder:"Enter the youtube video ID", id:"text-field" %></p>
+				<p><%= f.text_field :channel_name, placeholder:"Create a unique channel name", id:"text-field" %>
+				<p><%= f.text_field :upload_video, placeholder:"Enter the youtube video ID", id:"text-field" %></p>
+				<p><%= f.text_field :num_people, placeholder:"How many people are watching?", id:"text-field" %></p>
 				<p><%= f.submit "Create Lobby", class: "button button-rounded button-dark" %></p>
 			<% end %>
 		</div>
@@ -28,7 +30,7 @@
 		<div id="join-form" class="promo promo-dark promo-mini promo-center topmargin-lg bottommargin-lg hide-form">
 
 			<%= form_for :sessions, url: join_submit_path do |f| %>
-				<p><%= f.text_field :id, placeholder:"Ask the lobby master for the ID to join!", id:"text-field" %></p>
+				<p><%= f.text_field :id, placeholder:"Enter unique channel name", id:"text-field" %></p>
 				<p><%= f.submit "Join Lobby", class: "button button-rounded button-dark" %></p>
 			<% end %>
 

@@ -11,16 +11,18 @@ class SessionsController < ApplicationController
   end
 
   def create
-    video_id = video_params[:id]
-    redirect_to lobby_path(video_id: video_id)
+    channel_name = video_params[:channel_name]
+    upload_video = video_params[:upload_video]
+    num_people = video_params[:num_people]
+    redirect_to lobby_path(channel_name: channel_name)
   end
 
 	def join
 	end
 
   def join_submit
-    video_id = video_params[:id]
-    redirect_to lobby_path(video_id: video_id)
+    channel_name = video_params[:channel_name]
+    redirect_to lobby_path(channel_name: channel_name)
   end
 
 	def lobby
