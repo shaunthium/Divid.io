@@ -52,7 +52,7 @@ function VideoSync(roomId, userId) {
         linkStart = true;
 
         // The initial starting time of the current video.
-        var time = player.currentTime();
+        var time = player.getCurrentTime();
 
         // Subscribing to our PubNub channel.
         pubnub.subscribe({
@@ -127,7 +127,7 @@ function VideoSync(roomId, userId) {
                 // Pause event.
                 else if (player.getPlayerState() === 2) {
                   console.log("Tell PUBNUB PAUSE");
-                    pub("pause", player.currentTime());
+                    pub("pause", player.getCurrentTime());
                 }
                 else {
                   console.log("NOOOOOOOO");

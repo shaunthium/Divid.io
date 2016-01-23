@@ -1,27 +1,13 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 var cvpHandlers = {
 	canvasClickHandler: null,
 	videoTimeUpdateHandler: null,
 	videoCanPlayHandler: null,
-<<<<<<< HEAD
 	windowResizeHandler: null
-=======
-	windowResizeHandler: null,
->>>>>>> master
 };
 
 var CanvasVideoPlayer = function(options) {
 	var i;
 
-<<<<<<< HEAD
-=======
-  // var PBonPlayerReady = function(){};
-  // var PBonPlayerStateChange = function(){};
-
->>>>>>> master
 	this.options = {
 		framesPerSecond: 25,
 		hideVideo: true,
@@ -139,11 +125,7 @@ CanvasVideoPlayer.prototype.jumpTo = function(percentage) {
 CanvasVideoPlayer.prototype.bind = function() {
 	var self = this;
 
-<<<<<<< HEAD
-	// Playes or pauses video on canvas click
-=======
 	// Plays or pauses video on canvas click
->>>>>>> master
 	this.canvas.addEventListener('click', cvpHandlers.canvasClickHandler = function() {
 		self.playPause();
 	});
@@ -159,10 +141,7 @@ CanvasVideoPlayer.prototype.bind = function() {
 	// Draws first frame
 	this.video.addEventListener('canplay', cvpHandlers.videoCanPlayHandler = function() {
 		self.drawFrame();
-<<<<<<< HEAD
-=======
     self.options.PBonPlayerReady(self);
->>>>>>> master
 	});
 
 	if (self.options.autoplay) {
@@ -200,10 +179,6 @@ CanvasVideoPlayer.prototype.bind = function() {
 	};
 };
 
-<<<<<<< HEAD
-=======
-//===========================
-
 CanvasVideoPlayer.prototype.getCurrentTime = function() {
 	return this.video.currentTime;
 };
@@ -217,9 +192,6 @@ CanvasVideoPlayer.prototype.seekTo = function(t) {
 	this.jumpTo(t/this.video.duration);
 };
 
-//===========================
-
->>>>>>> master
 CanvasVideoPlayer.prototype.updateTimeline = function() {
 	var percentage = (this.video.currentTime * 100 / this.video.duration).toFixed(2);
 	this.timelinePassed.style.width = percentage + '%';
@@ -260,11 +232,8 @@ CanvasVideoPlayer.prototype.playPause = function() {
 	else {
 		this.play();
 	}
-<<<<<<< HEAD
-=======
 
   this.options.PBonPlayerStateChange(this);
->>>>>>> master
 };
 
 CanvasVideoPlayer.prototype.loop = function() {

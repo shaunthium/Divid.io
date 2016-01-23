@@ -4,7 +4,7 @@ development:
     host: localhost
     pool: 5
     timeout: 5000
-    username: SozoS
+    username: Shaun
     password:
 
 test:
@@ -13,5 +13,5 @@ test:
     host: localhost
     pool: 5
     timeout: 5000
-    username: SozoS
+    username: Shaun
     password:
