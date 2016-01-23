@@ -28,10 +28,11 @@ class SessionsController < ApplicationController
   end
 
 	def lobby
-    master = Session.where(channel_name: params[:channel_name], master: true)
-    @video = master.video
+    master_session = Session.find_by(channel_name: params[:channel_name], master: true)
+    @video = master_session.video
+    @channel_name = params[:channel_name]
     @session = Session.find(params[:id])
-    if master != @session
+    if master_session != @session
       @identity = "second"
     else
       @identity = "first"

@@ -1,5 +1,5 @@
 <style>
-	
+
 	body {
 		margin: 0;
 		overflow: hidden;
@@ -54,7 +54,7 @@
 </style>
 
 <div class="center" style="margin-top:10%">
-	<%= link_to lobby_path(channel_name: @session.channel_name) do %>
+	<%= link_to lobby_path(channel_name: @session.channel_name, id: @session) do %>
 		<button class="button button-desc button-dark button-rounded">
 			<div>Click to play your video
 				<span>Warning: Doing so before all channel</span> <span>users are ready will affect video performance</span>
