@@ -1,9 +1,9 @@
-<div class="center" style="border: 4px solid black; height:593px;">
+<div class="center" style="height:593px;">
   <%= javascript_include_tag "http://cdn.pubnub.com/pubnub.min.js" %>
   <%= javascript_include_tag "videosync" %>
   <%= javascript_include_tag "stanko" %>
-  <div id="player" class="video-wrapper js-video-wrapper" style="border: 4px solid red; max-width:600px; height:593px; padding:0; margin:0;">
-    <div class="video-responsive" style="border: 4px solid blue; max-width:600px; height:593px; padding:0; margin:0;">
+  <div id="player" class="video-wrapper js-video-wrapper" style="max-width:600px; height:100%; padding:0; margin:0;">
+    <div class="video-responsive" style="max-width:600px; height:100%; padding:0; margin:0;">
       <video class="video js-video" muted>
         <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.webm" type="video/webm" />
         <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" type="video/mp4" />
@@ -15,13 +15,14 @@
 
       <% if @identity == "first" %>
       <canvas class="canvas js-canvas" id="first"></canvas>
+	<p>first</p>
 
       <!-- <div class="video-timeline js-timeline">
         <div class="video-timeline-passed js-timeline-passed">
         </div>
       </div> -->
       <% else %>
-      <canvas class="canvas js-canvas" id="second" style="border-style:solid; height:593px"></canvas>
+      <canvas class="canvas js-canvas" id="second"></canvas>
 
       <!-- <div class="video-timeline js-timeline">
         <div class="video-timeline-passed js-timeline-passed">
