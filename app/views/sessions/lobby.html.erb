@@ -2,8 +2,8 @@
   <%= javascript_include_tag "http://cdn.pubnub.com/pubnub.min.js" %>
   <%= javascript_include_tag "videosync" %>
   <%= javascript_include_tag "stanko" %>
-  <div id="player" class="video-wrapper js-video-wrapper">
-    <div class="video-responsive">
+  <div id="player" class="video-wrapper js-video-wrapper" style="border-style:solid">
+    <div class="video-responsive" style="border-style:solid">
       <video class="video js-video" muted>
         <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.webm" type="video/webm" />
         <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" type="video/mp4" />
@@ -21,7 +21,7 @@
         </div>
       </div> -->
       <% else %>
-      <canvas class="canvas js-canvas" id="second"></canvas>
+      <canvas class="canvas js-canvas" id="second" style="border-style:solid"></canvas>
 
       <!-- <div class="video-timeline js-timeline">
         <div class="video-timeline-passed js-timeline-passed">

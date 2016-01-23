@@ -18,16 +18,34 @@ body {
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 	/* Styles */
+	#second {
+		width:375px;
+		height:559px;
+		left:0;
+		position:absolute;
+	}
 }
 
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width : 321px) {
 	/* Styles */
+	#second {
+		width:375px;
+		height:559px;
+		left:0;
+		position:absolute;
+	}
 }
 
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
 	/* Styles */
+	#second {
+		width:375px;
+		height:559px;
+		left:0;
+		position:absolute;
+	}
 
 }
 
