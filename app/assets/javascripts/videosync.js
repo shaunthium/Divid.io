@@ -84,8 +84,7 @@ function VideoSync(roomId, userId) {
                         player.play();
                     }
                 }
-            },
-            presence: function (m) {}
+            }
         });
 
         // Intermittently checks whether the video player has jumped ahead or
@@ -102,7 +101,7 @@ function VideoSync(roomId, userId) {
             }
           }
           time = curTime;
-        }, 100);
+        }, 500);
 
     };
 
