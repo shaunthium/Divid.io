@@ -1,41 +1,39 @@
-
-<div>
-
+<div class="center">
   <%= javascript_include_tag "http://cdn.pubnub.com/pubnub.min.js" %>
   <%= javascript_include_tag "videosync" %>
   <%= javascript_include_tag "stanko" %>
   <div id="player" class="video-wrapper js-video-wrapper" style="height:100vh">
     <div class="video-responsive" style="height:100vh">
       <video class="video js-video" muted>
-        <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.webm" type="video/webm">
-          <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" type="video/mp4">
-            <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.ogv" type="video/ogg">
-              <!-- <source src="https://www.youtube.com/watch?v=kfchvCyHmsc?html5=1" type="video/mp4"> -->
-              <!-- <source src="videos/test.mp4" type="video/mp4"> -->
-              Your browser does not support HTML5 video.
-            </video>
-            
-            <% if @identity == "first" %>
-            <canvas class="canvas js-canvas" id="first"></canvas>
+        <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.webm" type="video/webm" />
+        <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" type="video/mp4" />
+        <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.ogv" type="video/ogg" />
+        <!-- <source src="https://www.youtube.com/watch?v=kfchvCyHmsc?html5=1" type="video/mp4" /> -->
+        <!-- <source src="videos/test.mp4" type="video/mp4" /> -->
+        Your browser does not support HTML5 video.
+      </video>
 
-            <div class="video-timeline js-timeline">
-              <div class="video-timeline-passed js-timeline-passed">
-              </div>
-            </div>
-            <% else %>
-            <canvas class="canvas js-canvas" id="second"></canvas>
+      <% if @identity == "first" %>
+      <canvas class="canvas js-canvas" id="first"></canvas>
 
-            <div class="video-timeline js-timeline">
-              <div class="video-timeline-passed js-timeline-passed">
-              </div>
-            </div>
-            <% end %>
-          </div>
+      <div class="video-timeline js-timeline">
+        <div class="video-timeline-passed js-timeline-passed">
         </div>
-        <script>
-          var rand = Math.random().toString();
+      </div>
+      <% else %>
+      <canvas class="canvas js-canvas" id="second"></canvas>
 
-          var vidSync = new VideoSync("<%= @video_id %>", "Player" + rand);
+      <div class="video-timeline js-timeline">
+        <div class="video-timeline-passed js-timeline-passed">
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <script>
+    var rand = Math.random().toString();
+
+    var vidSync = new VideoSync("<%= @video_id %>", "Player" + rand);
 
     // var player = document.getElementsByClassName('video js-video')[0];
     var player = new CanvasVideoPlayer({
@@ -62,6 +60,4 @@
     // }
 
   </script>
-
-  
 </div>

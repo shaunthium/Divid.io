@@ -1,13 +1,13 @@
 #first {
 	width:auto; 
-	height:100%; 
-	left:375px; 
+	height:100vh; 
+	left:50vh; 
 	position:absolute;
 }
 
 #second {
 	 width:auto;
-	 height:100%;
-	 left:-375px;
+	 height:100vh;
+	 left:50vh;
 	 position:absolute;
 }
