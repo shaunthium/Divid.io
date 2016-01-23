@@ -1,52 +1,56 @@
-<div class="topmargin-lg center bottommargin">
-	<h1>Welcome to the lobby</h1>
-  <p class="para">Your video id: 5</p>
-	<p class="para">The canvas below shows friends who have joined your lobby.</p>
-	<p class="para">Drag and drop the rectangles (representative of screen size) to your desired configuration.</p>
-	<p class="para">Click "Stream" to play video.</p>
-
+<div class="center" style="height:593px;">
   <%= javascript_include_tag "http://cdn.pubnub.com/pubnub.min.js" %>
   <%= javascript_include_tag "videosync" %>
-	<%= javascript_include_tag "stanko" %>
 
 
 
-  <div>
-    <%= video_tag @session.video, controls: true %>
+  <!-- <div> -->
+    <%# video_tag @session.video, controls: true %>
+  <!-- </div> -->
+  <%= javascript_include_tag "stanko" %>
+  <div id="player" class="video-wrapper js-video-wrapper" style="max-width:600px; height:100%; padding:0; margin:0;">
+    <div class="video-responsive" style="max-width:600px; height:100%; padding:0; margin:0;">
+      <video class="video js-video" muted>
+        <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.webm" type="video/webm" />
+        <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" type="video/mp4" />
+        <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.ogv" type="video/ogg" />
+        <!-- <source src="https://www.youtube.com/watch?v=kfchvCyHmsc?html5=1" type="video/mp4" /> -->
+        <!-- <source src="videos/test.mp4" type="video/mp4" /> -->
+        Your browser does not support HTML5 video.
+      </video>
+
+      <% if @identity == "first" %>
+      <canvas class="canvas js-canvas" id="first"></canvas>
+	<p>first</p>
+
+      <!-- <div class="video-timeline js-timeline">
+        <div class="video-timeline-passed js-timeline-passed">
+        </div>
+      </div> -->
+      <% else %>
+      <canvas class="canvas js-canvas" id="second"></canvas>
+
+      <!-- <div class="video-timeline js-timeline">
+        <div class="video-timeline-passed js-timeline-passed">
+        </div>
+      </div> -->
+      <% end %>
+    </div>
   </div>
-
-  <div>
-    <%= image_tag @session.image %>
-  </div>
-
   <script>
     var rand = Math.random().toString();
 
     var vidSync = new VideoSync("<%= @video_id %>", "Player" + rand);
 
-		var player = new CanvasVideoPlayer({
-			videoSelector: '.js-video',
-			canvasSelector: '.js-canvas',
-			timelineSelector: '.js-timeline',
-			audio: true,
-			PBonPlayerReady : vidSync.onPlayerReady,
-			PBonPlayerStateChange : vidSync.onPlayerStateChange
-		});
 
-  </script>
+    var player = new CanvasVideoPlayer({
+      videoSelector: '.js-video',
+      canvasSelector: '.js-canvas',
+      timelineSelector: '.js-timeline',
+      audio: true,
+      PBonPlayerReady : vidSync.onPlayerReady,
+      PBonPlayerStateChange : vidSync.onPlayerStateChange
+    });
 
-  <div class="clear"></div>
-
-  <canvas id="phoneCanvas" style="width:auto; height:500px; border: 2px solid black;">
-  </canvas>
-
-  <div class="clear"></div>
-
-	<button class="button button-xlarge button-rounded button-dark">Stream</button>
-  <script>
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   </script>
 </div>
