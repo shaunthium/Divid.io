@@ -54,9 +54,32 @@
 </style>
 
 <div class="center" style="margin-top:10%">
-	<%= link_to lobby_path(channel_name: "test") do %>
-		<button class="button button-rounded button-dark">Link to lobby path</button>
+	<%= link_to lobby_path(channel_name: @session.channel_name) do %>
+		<button class="button button-desc button-dark button-rounded">
+			<div>Click to play your video
+				<span>Warning: Doing so before all channel</span> <span>users are ready will affect video performance</span>
+			</div>
+		</button>
 	<% end %>
+	<div class="clear"></div>
+	<button class="button button-mini button-border button-rounded" data-toggle="modal" data-target=".bs-example-modal-lg">Click for info on phone arrangement</button>
+
+		<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-body">
+					<div class="modal-content" style="background-color:#333;">
+						<div class="modal-header center">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h2 class="modal-title" id="myModalLabel" style="color:white;">Arranging your iPhone 6</h2>
+						</div>
+						<div class="modal-body center">
+							<h4 style="color:white;">Two devices</h4>
+							<%= image_tag("2device.png", class: "two-device") %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 </div>
 
 <div class='container center divcenter' style="z-index:-1">
