@@ -1,3 +1,20 @@
+#first {
+	width:375px; 
+	height:559px; 
+	left:0; 
+	position:absolute;
+}
+
+#second {
+	width:375px;
+	height:559px;
+	left:0;
+	position:absolute;
+}
+body {
+	background-color: red;
+}
+
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 	/* Styles */
@@ -11,22 +28,7 @@
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
 	/* Styles */
-	#first {
-		width:auto; 
-		height:100vh; 
-		left:50vh; 
-		position:absolute;
-	}
 
-	#second {
-		width:auto;
-		height:100vh;
-		left:50vh;
-		position:absolute;
-	}
-	body {
-		background-color: red;
-	}
 }
 
 /* iPads (portrait and landscape) ----------- */
