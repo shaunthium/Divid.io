@@ -15,22 +15,19 @@
 			<div>Join<span>an <b>existing</b> lobby</span></div>
 		</a>
 
-    <div class="well">
-      <%= form_for @session, url: create_video_path, html: { multipart: true } do |f| %>
-        <%= f.label :video %>
-        <%= f.file_field :video %>
-        <%= f.submit "Save", class: "btn btn-primary" %>
-      <% end %>
-    </div>
 
 		<%# CREATE %>
-		<div id="create-form" class="promo promo-dark promo-mini promo-center topmargin-lg bottommargin-lg hide-form">
+		<div id="create-form" class="well promo promo-dark promo-mini promo-center topmargin-lg bottommargin-lg hide-form">
 
-			<%= form_for :sessions, url: sessions_path do |f| %>
+
+			<%= form_for @session, url: sessions_path, html: { multipart:true } do |f| %>
 				<p><%= f.text_field :channel_name, placeholder:"Create a unique channel name", id:"text-field" %>
-				<p><%= f.text_field :upload_video, placeholder:"Enter the youtube video ID", id:"text-field" %></p>
+				<p><%= f.file_field :video, id:"text-field" %></p>
 				<p><%= f.text_field :num_people, placeholder:"How many people are watching?", id:"text-field" %></p>
 				<p><%= f.submit "Create Lobby", class: "button button-rounded button-dark" %></p>
+			<% end %>
+			<%= link_to wait_path do %>
+				<button>Use this to view waiting room</button>
 			<% end %>
 		</div>
 
