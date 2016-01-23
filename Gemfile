@@ -37,6 +37,8 @@ gem 'bootstrap-sass'
 # to run rails on an ssh server
 gem 'thin'
 
+gem 'carrierwave'
+
 group :development do
   # Turns off Rails asset pipeline log
   gem 'quiet_assets'
