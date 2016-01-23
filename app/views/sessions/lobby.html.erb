@@ -41,12 +41,16 @@
           'onStateChange': vidSync.onPlayerStateChange
         }
       });
+      document.getElementsByTagName('iframe')[0].setAttribute('playsinline','1');
     }
   </script>
 
-	<div style="border-style:solid; width:auto; height:500px;">
-		Canvas goes here
-	</div>
+  <div class="clear"></div>
+
+  <canvas id="phoneCanvas" style="width:auto; height:500px; border: 2px solid black;">
+  </canvas>
+
+  <div class="clear"></div>
 
 	<button class="button button-xlarge button-rounded button-dark">Stream</button>
 </div>
