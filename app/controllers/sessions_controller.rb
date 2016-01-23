@@ -28,10 +28,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    channel_name = video_params[:channel_name]
-    upload_video = video_params[:upload_video]
-    num_people = video_params[:num_people]
-    redirect_to lobby_path(channel_name: channel_name)
+    @session = Session.new
+    @session.video = params[:session][:video]
+    channel_name = params[:session][:channel_name]
+    upload_video = params[:session][:upload_video]
+    num_people = params[:session][:num_people]
+    if @session.save
+      redirect_to lobby_path(channel_name: channel_name)
+    end
   end
 
 	def join
