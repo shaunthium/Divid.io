@@ -1,6 +1,6 @@
 <div class="topmargin-lg center bottommargin">
 	<h1>Welcome to the lobby</h1>
-  <p class="para">Your video id: <%= @video_id %></p>
+  <p class="para">Your video id: 5</p>
 	<p class="para">The canvas below shows friends who have joined your lobby.</p>
 	<p class="para">Drag and drop the rectangles (representative of screen size) to your desired configuration.</p>
 	<p class="para">Click "Stream" to play video.</p>
@@ -19,7 +19,7 @@
 				<!-- <source src="videos/test.mp4" type="video/mp4"> -->
 				Your browser does not support HTML5 video.
 			</video>
-      
+
       <% if @identity == "first" %>
   			<canvas class="canvas js-canvas" id="first"></canvas>
 
@@ -37,7 +37,7 @@
       <% end %>
 		</div>
 	</div>
-    
+
   <script>
     var rand = Math.random().toString();
 
