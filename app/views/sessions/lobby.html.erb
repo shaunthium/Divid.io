@@ -1,12 +1,6 @@
 <div class="center" style="height:593px;">
   <%= javascript_include_tag "http://cdn.pubnub.com/pubnub.min.js" %>
   <%= javascript_include_tag "videosync" %>
-
-
-
-  <!-- <div> -->
-    <%# video_tag @session.video, controls: true %>
-  <!-- </div> -->
   <%= javascript_include_tag "stanko" %>
   <div id="player" class="video-wrapper js-video-wrapper" style="max-width:600px; height:100%; padding:0; margin:0;">
     <div class="video-responsive" style="max-width:600px; height:100%; padding:0; margin:0;">
@@ -32,8 +26,7 @@
     document.getElementsByTagName('video')[0].className += "video js-video";
     var rand = Math.random().toString();
 
-    var vidSync = new VideoSync("<%= @video_id %>", "Player" + rand);
-
+    var vidSync = new VideoSync("", "Player" + rand);
 
     var player = new CanvasVideoPlayer({
       videoSelector: '.js-video',

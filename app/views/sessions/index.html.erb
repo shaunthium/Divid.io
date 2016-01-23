@@ -34,8 +34,8 @@
 		<%# JOIN %>
 		<div id="join-form" class="promo promo-dark promo-mini promo-center topmargin-lg bottommargin-lg hide-form">
 
-			<%= form_for :sessions, url: join_submit_path do |f| %>
-				<p><%= f.text_field :id, placeholder:"Enter unique channel name", id:"text-field" %></p>
+			<%= form_for @session, url: join_path do |f| %>
+				<p><%= f.text_field :channel_name, placeholder:"Enter unique channel name", id:"text-field" %></p>
 				<p><%= f.submit "Join Lobby", class: "button button-rounded button-dark" %></p>
 			<% end %>
 

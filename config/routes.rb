@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-  get 'sessions/join' => "sessions#join", as: 'join_session'
   get 'sessions/lobby' => "sessions#lobby", as: 'lobby'
   get 'sessions/wait' => "sessions#wait", as: "wait"
-  post 'sessions/join_submit' => 'sessions#join_submit', as: 'join_submit'
-  post 'sessions/create_image' => 'sessions#create_image', as: 'create_image'
-  post 'sessions/create_video' => 'sessions#create_video', as: 'create_video'
-  resources :sessions
+  post 'sessions/join' => 'sessions#join', as: 'join'
+  resources :sessions, only: [:index, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

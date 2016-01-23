@@ -1,46 +1,34 @@
 class SessionsController < ApplicationController
-  include SessionsHelper
 
 	def index
     @session = Session.new
 	end
 
-	def new
-	end
-
   def wait
-  end
-
-  def create_video
-    @session = Session.new
-    @session.video = params[:session][:video]
-    if @session.save
-      redirect_to lobby_path
-    end
+    @session = Session.find(params[:id])
   end
 
   def create
     @session = Session.new
     @session.video = params[:session][:video]
-    channel_name = params[:session][:channel_name]
-    upload_video = params[:session][:upload_video]
-    num_people = params[:session][:num_people]
+    @session.num_people = params[:session][:num_people]
+    @session.channel_name = params[:session][:channel_name]
+    @session.master = true
     if @session.save
-      redirect_to lobby_path(channel_name: channel_name)
+      redirect_to wait_path(channel_name: @session.channel_name, id: @session)
     end
   end
 
-	def join
-	end
 
-  def join_submit
-    channel_name = video_params[:channel_name]
-    redirect_to lobby_path(channel_name: channel_name)
+  def join
+    @session.channel_name = params[:session][:channel_name]
+    if @session.save
+      redirect_to wait_path(channel_name: @session.channel_name, id: @session)
+    end
   end
 
 	def lobby
     @session = Session.last
-    @video_id = params[:video_id]
     if Session.any?
       @identity = "second"
     else
@@ -48,10 +36,4 @@ class SessionsController < ApplicationController
       @identity = "first"
     end
   end
-
-  private
-    def image_params
-      params.require(:session).permit(:image)
-    end
-
 end

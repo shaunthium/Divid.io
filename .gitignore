@@ -15,4 +15,5 @@
 /log/*
 !/log/.keep
 /tmp
-/uploads/session/
+/public/uploads/session/
+/public/uploads/tmp/
