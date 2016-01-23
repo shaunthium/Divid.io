@@ -2,14 +2,11 @@ var cvpHandlers = {
 	canvasClickHandler: null,
 	videoTimeUpdateHandler: null,
 	videoCanPlayHandler: null,
-	windowResizeHandler: null,
+	windowResizeHandler: null
 };
 
 var CanvasVideoPlayer = function(options) {
 	var i;
-
-  // var PBonPlayerReady = function(){};
-  // var PBonPlayerStateChange = function(){};
 
 	this.options = {
 		framesPerSecond: 25,
@@ -182,8 +179,6 @@ CanvasVideoPlayer.prototype.bind = function() {
 	};
 };
 
-//===========================
-
 CanvasVideoPlayer.prototype.getCurrentTime = function() {
 	return this.video.currentTime;
 };
@@ -196,8 +191,6 @@ CanvasVideoPlayer.prototype.getPlayerState = function() {
 CanvasVideoPlayer.prototype.seekTo = function(t) {
 	this.jumpTo(t/this.video.duration);
 };
-
-//===========================
 
 CanvasVideoPlayer.prototype.updateTimeline = function() {
 	var percentage = (this.video.currentTime * 100 / this.video.duration).toFixed(2);

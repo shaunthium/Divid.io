@@ -2,7 +2,8 @@
 
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
-Rails.application.config.assets.precompile += %w( pubnub.js main.js videosync.js stanko.js stanko.css bg.jpg index.js first.css second.css )
+
+Rails.application.config.assets.precompile += %w( pubnub.js main.js videosync.js stanko.js stanko.css bg.jpg index.js )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << "#{Rails.root}/app/assets/videos"

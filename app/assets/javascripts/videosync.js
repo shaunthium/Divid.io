@@ -123,9 +123,14 @@ function VideoSync(roomId, userId) {
                 if (player.getPlayerState() === 1) { // Play event.
                     console.log("Tell PUBNUB PLAY");
                     pub("play", null);
-                } else { // Pause event.
+                }
+                // Pause event.
+                else if (player.getPlayerState() === 2) {
                   console.log("Tell PUBNUB PAUSE");
-                    pub("pause", p.getCurrentTime());
+                    pub("pause", player.getCurrentTime());
+                }
+                else {
+                  console.log("NOOOOOOOO");
                 }
             }
         }
