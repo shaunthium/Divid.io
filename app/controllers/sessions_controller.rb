@@ -11,14 +11,6 @@ class SessionsController < ApplicationController
   def wait
   end
 
-  def create_image
-    @session = Session.new
-    @session.image = params[:session][:image]
-    if @session.save
-      redirect_to lobby_path
-    end
-  end
-
   def create_video
     @session = Session.new
     @session.video = params[:session][:video]
