@@ -1,0 +1,13 @@
+#first {
+	width:auto; 
+	height:1334px; 
+	left:375px; 
+	position:absolute;
+}
+
+#second {
+	 width:auto;
+	 height:1334px;
+	 left:-375px;
+	 position:absolute;
+}

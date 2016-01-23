@@ -25,5 +25,12 @@ class SessionsController < ApplicationController
 
 	def lobby
     @video_id = params[:video_id]
-	end
+    if Session.any?
+      @identity = "second"
+    else
+      Session.create!(counter: 1)
+      @identity = "first"
+    end
+  end
+
 end

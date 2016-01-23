@@ -20,15 +20,25 @@
 				<!-- <source src="videos/test.mp4" type="video/mp4"> -->
 				Your browser does not support HTML5 video.
 			</video>
+      
+      <% if @identity == "first" %>
+  			<canvas class="canvas js-canvas" id="first"></canvas>
 
-			<canvas class="canvas js-canvas" style="width:1000px"></canvas>
+  			<div class="video-timeline js-timeline">
+  				<div class="video-timeline-passed js-timeline-passed">
+  				</div>
+  			</div>
+      <% else %>
+        <canvas class="canvas js-canvas" id="second"></canvas>
 
-			<div class="video-timeline js-timeline">
-				<div class="video-timeline-passed js-timeline-passed">
-				</div>
-			</div>
+        <div class="video-timeline js-timeline">
+          <div class="video-timeline-passed js-timeline-passed">
+          </div>
+        </div>
+      <% end %>
 		</div>
 	</div>
+    
   <script>
     // var tag = document.createElement('script');
     // tag.src = "https://www.youtube.com/iframe_api";
@@ -51,7 +61,7 @@
 
     var rand = Math.random().toString();
 
-    var vidSync = new VideoSync("<%= @video_id %>1", "Player" + rand);
+    var vidSync = new VideoSync("<%= @video_id %>", "Player" + rand);
 
     // var player = document.getElementsByClassName('video js-video')[0];
 		var player = new CanvasVideoPlayer({
