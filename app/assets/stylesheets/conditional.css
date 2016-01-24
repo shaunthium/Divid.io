@@ -13,29 +13,29 @@
 }
 
 #first-4 {
-  min-width: 200%;
-  min-height: 200%;
-  position: fixed;
+  min-width: 200% !important;
+  min-height: 200% !important;
+  position: fixed !important;
 }
 
 #second-4 {
-  min-width: 200%;
-  left: 50%;
-  min-height: 200%;
-  position: fixed;
+  min-width: 200% !important;
+  left: 50% !important;
+  min-height: 200% !important;
+  position: fixed !important;
 }
 
 #third-4 {
-  min-width: 200%;
-  top: 100%;
-  left: 50%;
-  min-height: 200%;
-  position: fixed;
+  min-width: 200% !important;
+  top: 100% !important;
+  left: 50% !important;
+  min-height: 200% !important;
+  position: fixed !important;
 }
 
 #fourth-4 {
-  min-width: 200%;
-  left: 150%;
-  min-height: 200%;
-  position: fixed;
+  min-width: 200% !important;
+  left: 150% !important;
+  min-height: 200% !important;
+  position: fixed !important;
 }
