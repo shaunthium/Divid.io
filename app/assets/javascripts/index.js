@@ -3,7 +3,7 @@ $(document).ready(function() {
 		$("#join-form").removeClass("hide-form");
 		$("#create-form").addClass("hide-form");
 		$("html,body").animate({
-			scrollTop: $(document).height()
+			scrollTop: ($(document).height()-750)
 		}, "slow");
 	});
 
@@ -11,7 +11,7 @@ $(document).ready(function() {
 		$("#create-form").removeClass("hide-form");
 		$("#join-form").addClass("hide-form");
 		$("html,body").animate({
-			scrollTop: $(document).height()
+			scrollTop: ($(document).height()-850)
 		}, "slow");
 	})
 });
