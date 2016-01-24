@@ -11,3 +11,31 @@
 	min-height:100%;
 	position:absolute;
 }
+
+#first-4 {
+  min-width: 200%;
+  min-height: 200%;
+  position: fixed;
+}
+
+#second-4 {
+  min-width: 200%;
+  left: 50%;
+  min-height: 200%;
+  position: fixed;
+}
+
+#third-4 {
+  min-width: 200%;
+  top: 100%;
+  left: 50%;
+  min-height: 200%;
+  position: fixed;
+}
+
+#fourth-4 {
+  min-width: 200%;
+  left: 150%;
+  min-height: 200%;
+  position: fixed;
+}
