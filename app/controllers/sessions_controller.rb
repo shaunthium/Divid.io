@@ -5,13 +5,15 @@ class SessionsController < ApplicationController
 	end
 
   def wait
+    master_session = get_master_session
+    @num_people = master_session.num_people
     @session = Session.find(params[:id])
   end
 
   def create
     @session = Session.new
     @session.video = params[:session][:video]
-    # @session.num_people = params[:session][:num_people]
+    @session.num_people = params[:session][:num_people]
     @session.channel_name = params[:session][:channel_name].downcase
     @session.master = true
     if @session.save
@@ -29,7 +31,7 @@ class SessionsController < ApplicationController
   end
 
 	def lobby
-    master_session = Session.find_by(channel_name: params[:channel_name], master: true)
+    master_session = get_master_session
     @video = master_session.video
     @channel_name = params[:channel_name]
     @session = Session.find(params[:id])
@@ -39,4 +41,9 @@ class SessionsController < ApplicationController
       @identity = "second"
     end
   end
+
+  private
+    def get_master_session
+      Session.find_by(channel_name: params[:channel_name], master: true)
+    end
 end
