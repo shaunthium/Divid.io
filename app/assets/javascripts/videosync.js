@@ -72,13 +72,13 @@ function VideoSync(roomId, userId) {
                             }
                         });
                     } else if (m.type === "pause") {
-                        player.seekTo(m.time, true);
+                        player.seekTo(m.time);
                         time = m.time;
                         console.log("PAUSE!");
                         player.pause();
                     } else if (m.type === "play") {
                         if (m.time !== null) {
-                            player.seekTo(m.time, true);
+                            player.seekTo(m.time);
                         }
                         console.log("PLAY!");
                         player.play();
@@ -117,6 +117,7 @@ function VideoSync(roomId, userId) {
         },
         // Should be bound to the YouTube player `onStateChange` event.
         onPlayerStateChange: function (p) {
+            player = p;
             if (linkStart) {
                 console.log("PlayerState: " + player.getPlayerState());
                 if (player.getPlayerState() === 1) { // Play event.
