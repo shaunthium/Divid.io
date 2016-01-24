@@ -6,6 +6,7 @@
 	<div id="wrap" class="center">
 
 		<h1 id="index-title">Divid.io</h1>
+		<%= image_tag "divid-io.png", :class => "header-img" %>
 
 		<a href="#" class="button button-desc button-dark button-rounded" id="create-button">
 			<div>Create<span>a <b>new</b> video lobby</span></div>
@@ -22,12 +23,9 @@
 
 			<%= form_for @session, url: sessions_path, html: { multipart:true } do |f| %>
 				<p><%= f.text_field :channel_name, placeholder:"Create a unique channel name", id:"text-field" %>
-				<p><%= f.file_field :video, id:"text-field" %></p>
+				<p><%= f.file_field :video, class: "upload-field" %></p>
 				<p><%= f.text_field :num_people, placeholder:"How many people are watching?", id:"text-field" %></p>
 				<p><%= f.submit "Create Lobby", class: "button button-rounded button-dark" %></p>
-			<% end %>
-			<%= link_to wait_path do %>
-				<button>Use this to view waiting room</button>
 			<% end %>
 		</div>
 
@@ -37,10 +35,6 @@
 			<%= form_for @session, url: join_path do |f| %>
 				<p><%= f.text_field :channel_name, placeholder:"Enter unique channel name", id:"text-field" %></p>
 				<p><%= f.submit "Join Lobby", class: "button button-rounded button-dark" %></p>
-			<% end %>
-
-			<%= link_to wait_path do %>
-				<button>Use this to view waiting room</button>
 			<% end %>
 		</div>
 

@@ -21,7 +21,11 @@ class SessionsController < ApplicationController
 
 
   def join
+<<<<<<< HEAD
     @session = Session.new
+=======
+	@session = Session.new
+>>>>>>> master
     @session.channel_name = params[:session][:channel_name]
     if @session.save
       redirect_to wait_path(channel_name: @session.channel_name, id: @session)
