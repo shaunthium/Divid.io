@@ -1,20 +1,13 @@
-/*#first {
-	min-width:200%; 
-	min-height:100%; 
-	left:0; 
-	position:absolute;
-}
-*/
-#second {
-	min-width:200%;
-	left:-100%;
-	min-height:100%;
-	position:absolute;
-}
-
-#master {
+#first-2 {
 	min-width:200% !important;
 	left:0px !important;
 	min-height:100% !important;
 	position:fixed !important;
+}
+
+#second-2 {
+	min-width:200%;
+	left:-100%;
+	min-height:100%;
+	position:absolute;
 }
