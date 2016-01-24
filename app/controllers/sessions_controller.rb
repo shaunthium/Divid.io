@@ -41,9 +41,10 @@ class SessionsController < ApplicationController
       # else
       #   @identity = "second-2"
       # end
-      if @session == sessions.first
+      @sessions = Session.where(channel_name: params[:channel_name])
+      if @session == @sessions.first
         @identity = "first-2"
-      elsif @session == sessions.second
+      elsif @session == @sessions.second
         @identity = "second-2"
       end
     elsif master_session.num_people == 4
