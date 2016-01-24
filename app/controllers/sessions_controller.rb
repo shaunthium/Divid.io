@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   def create
     @session = Session.new
     @session.video = params[:session][:video]
-    @session.num_people = params[:session][:num_people]
+    # @session.num_people = params[:session][:num_people]
     @session.channel_name = params[:session][:channel_name]
     @session.master = true
     if @session.save
@@ -33,10 +33,10 @@ class SessionsController < ApplicationController
     @video = master_session.video
     @channel_name = params[:channel_name]
     @session = Session.find(params[:id])
-    if master_session != @session
-      @identity = "second"
-    else
+    if master_session == @session
       @identity = "first"
+    else
+      @identity = "second"
     end
   end
 end
