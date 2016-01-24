@@ -11,3 +11,31 @@
 	min-height:100%;
 	position:absolute;
 }
+
+#first-4 {
+  min-width: 200% !important;
+  min-height: 200% !important;
+  position: fixed !important;
+}
+
+#second-4 {
+  min-width: 200% !important;
+  left: 50% !important;
+  min-height: 200% !important;
+  position: fixed !important;
+}
+
+#third-4 {
+  min-width: 200% !important;
+  top: 100% !important;
+  left: 50% !important;
+  min-height: 200% !important;
+  position: fixed !important;
+}
+
+#fourth-4 {
+  min-width: 200% !important;
+  left: 150% !important;
+  min-height: 200% !important;
+  position: fixed !important;
+}

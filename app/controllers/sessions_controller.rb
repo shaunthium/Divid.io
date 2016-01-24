@@ -35,19 +35,14 @@ class SessionsController < ApplicationController
     @video = master_session.video
     @channel_name = params[:channel_name]
     @session = Session.find(params[:id])
+    sessions = Session.where(channel_name: params[:channel_name])
     if master_session.num_people == 2
-      # if master_session == @session
-      #   @identity = "first-2"
-      # else
-      #   @identity = "second-2"
-      # end
       if @session == sessions.first
         @identity = "first-2"
       elsif @session == sessions.second
         @identity = "second-2"
       end
     elsif master_session.num_people == 4
-      sessions = Session.where(channel_name: params[:channel_name])
       if @session == sessions.first
         @identity = "first-4"
       elsif @session == sessions.second
