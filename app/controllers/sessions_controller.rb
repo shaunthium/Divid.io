@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     @session = Session.new
     @session.video = params[:session][:video]
     # @session.num_people = params[:session][:num_people]
-    @session.channel_name = params[:session][:channel_name]
+    @session.channel_name = params[:session][:channel_name].downcase
     @session.master = true
     if @session.save
       redirect_to wait_path(channel_name: @session.channel_name, id: @session)
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
 
   def join
     @session = Session.new
-    @session.channel_name = params[:session][:channel_name]
+    @session.channel_name = params[:session][:channel_name].downcase
     if @session.save
       redirect_to wait_path(channel_name: @session.channel_name, id: @session)
     end
