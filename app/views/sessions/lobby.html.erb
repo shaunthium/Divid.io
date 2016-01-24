@@ -4,8 +4,16 @@
       <%= video_tag @video, "", size: '0' %>
       <% if @identity == "first-2" %>
         <canvas class="canvas js-canvas" id="first-2"></canvas>
-      <% else %>
+      <% elsif @identity == 'second-2' %>
         <canvas class="canvas js-canvas" id="second-2"></canvas>
+      <% elsif @identity == 'first-4' %>
+        <canvas class="canvas js-canvas" id="first-4"></canvas>
+      <% elsif @identity == 'second-4' %>
+        <canvas class="canvas js-canvas" id="second-4"></canvas>
+      <% elsif @identity == 'third-4' %>
+        <canvas class="canvas js-canvas" id="third-4"></canvas>
+      <% elsif @identity == 'fourth-4' %>
+        <canvas class="canvas js-canvas" id="fourth-4"></canvas>
       <% end %>
       <div class="video-timeline js-timeline">
         <div class="video-timeline-passed js-timeline-passed"></div>
