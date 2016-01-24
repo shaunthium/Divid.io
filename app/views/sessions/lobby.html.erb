@@ -13,7 +13,7 @@
       <%= video_tag @video, "", controls: true, size: '0' %>
 
       <% if @identity == "first" %>
-        <canvas class="canvas js-canvas" id="first"></canvas>
+        <canvas class="canvas js-canvas" id="master"></canvas>
       <% else %>
         <canvas class="canvas js-canvas" id="second"></canvas>
       <% end %>
