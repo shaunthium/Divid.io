@@ -25,9 +25,9 @@
 				<p class="nobottommargin"><%= f.text_field :channel_name, placeholder:"e.g. 'potato'", id:"text-field" %>
 				<p style="color:white;" class="notopmargin">Enter a unique channel name</p>
 				<p><%= f.file_field :video, class: "upload-field" %></p>
-				<p><%= f.label "# of people", style: "color:white;" %>
+				<p class="nobottommargin"><%= f.label "# of people", style: "color:white;" %>
 				<%= f.number_field :num_people, placeholder:"How many people are watching?", id:"text-field", class: "num-field" %></p>
-				<p style="color:white;"><span style="color:#3399CC">*</span> Currently, only 2 and 4 devices allowed.</p>
+				<p style="color:white;" class="notopmargin"><span style="color:#3399CC">*</span> Currently, only 2 and 4 devices allowed.</p>
 				<p><%= f.submit "Create Lobby", class: "button button-rounded button-dark" %></p>
 			<% end %>
 		</div>
