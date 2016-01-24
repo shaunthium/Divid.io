@@ -70,21 +70,37 @@
 					<div class="modal-content" style="background-color:#333;">
 						<div class="modal-header center">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							<h2 class="modal-title" id="myModalLabel" style="color:white;">Arranging your iPhone 6</h2>
+							<h2 class="modal-title" id="myModalLabel" style="color:white;">Arranging your iPhone 6 <%= @num_people %> </h2>
 						</div>
 						<div class="modal-body center">
-							<h4 style="color:white;">Two devices</h4>
+							<% if @num_people == 2 %>
+								<h4 style="color:white;">Two devices</h4>
 
-							<%= image_tag("2device.png", class: "two-device") %>
+								<%= image_tag("2device.png", class: "two-device") %>
 
-							<div class="clear"></div>
-							<p></p>
-							
-							<p class="para-white">Devices are to be arranged in the order in which the user joins the lobby. </p>
-							<p class="para-white">This is implemented using timestamps on the database and therefore, a proper arrangement is crucial for a good video experience. </p>
-							<p class="para-white">For example, device 1 (in the image) corresponds to the user that first joined the lobby.</p>
-				
-							<div class="clear"></div>
+								<div class="clear"></div>
+								<p></p>
+								
+								<p class="para-white">Devices are to be arranged in the order in which the user joins the lobby. </p>
+								<p class="para-white">This is implemented using timestamps on the database and therefore, a proper arrangement is crucial for a good video experience. </p>
+								<p class="para-white">For example, device 1 (in the image) corresponds to the user that first joined the lobby.</p>
+					
+								<div class="clear"></div>
+							<% end %>
+							<% if @num_people == 4 %>
+								<h4 style="color:white;">Four devices</h4>
+
+								<%= image_tag("4device.png", class: "two-device") %>
+
+								<div class="clear"></div>
+								<p></p>
+								
+								<p class="para-white">Devices are to be arranged in the order in which the user joins the lobby. </p>
+								<p class="para-white">This is implemented using timestamps on the database and therefore, a proper arrangement is crucial for a good video experience. </p>
+								<p class="para-white">For example, device 1 (in the image) corresponds to the user that first joined the lobby.</p>
+					
+								<div class="clear"></div>
+							<% end %>
 						</div>
 					</div>
 				</div>

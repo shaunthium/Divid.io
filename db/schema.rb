@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160124051820) do
     t.string   "image"
     t.string   "video"
     t.boolean  "master",       default: false
-    t.integer  "num_people"
+    t.integer  "num_people", default: 0
   end
 
 end
