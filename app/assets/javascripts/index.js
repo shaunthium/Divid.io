@@ -20,8 +20,6 @@ $(document).ready(function() {
 
     $("#modal-display").click(function(e) {
         $body.addClass("loading");
-        console.log("this wokrs");
-        e.preventDefault();
     });
 
 });
