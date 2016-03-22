@@ -41,6 +41,8 @@ gem 'bootstrap-modal-rails'
 
 gem 'carrierwave'
 
+gem 'fog'
+
 group :development do
   # Turns off Rails asset pipeline log
   gem 'quiet_assets'
