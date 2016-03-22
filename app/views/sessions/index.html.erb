@@ -16,7 +16,7 @@
 			<div>Join<span>an <b>existing</b> lobby</span></div>
 		</a>
 
-
+    <div class="loading-modal"></div>
 		<%# CREATE %>
 		<div id="create-form" class="well promo promo-dark promo-mini promo-center topmargin-lg bottommargin-lg hide-form">
 
@@ -28,7 +28,7 @@
 				<p class="nobottommargin"><%= f.label "# of people", style: "color:white;" %>
 				<%= f.number_field :num_people, placeholder:"How many people are watching?", id:"text-field", class: "num-field" %></p>
 				<p style="color:white;" class="notopmargin"><span style="color:#3399CC">*</span> Currently, only 2 and 4 devices allowed.</p>
-				<p><%= f.submit "Create Lobby", class: "button button-rounded button-dark" %></p>
+				<p><%= f.submit "Create Lobby", class: "button button-rounded button-dark", id: "modal-display" %></p>
 			<% end %>
 		</div>
 
